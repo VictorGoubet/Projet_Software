@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Solution.Problem1
 {
-    interface Enumerable<T>
+    public interface Enumerable<T>
     {
         Iterator<T> GetEnumerator();
     }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Solution.Problem1
 {
-    class Queue<T>: Enumerable<T>
+    public class Queue<T>: Enumerable<T> where T : struct
     {
 
         public Node<T> root { get; set; }
@@ -36,11 +36,15 @@ namespace Solution.Problem1
         }
 
         // Dequeue the last value added
-        public T dequeue()
+        public T? dequeue()
         {
-            T val = this.root.data;
-            this.root = this.root.next;
-
+            T? val = null;
+            if(this.root != null)
+            {
+                val = this.root.data;
+                this.root = this.root.next;
+            }
+            
             return val;
         }
 
@@ -124,7 +128,7 @@ namespace Solution.Problem1
                 Node<T> node1 = this.root;
                 Node<T> node2 = queue2.root;
 
-                while(node1.next != null)
+                while(node1 != null && node2 != null)
                 {
                     if (!node1.Equals(node2))
                     {

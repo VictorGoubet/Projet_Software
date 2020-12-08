@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Solution.Problem1
 {
-    class QueueIterator<T> : Iterator<T>
+    public class QueueIterator<T> : Iterator<T> where T : struct
     {
         private Queue<T> queue;
         public Node<T> Current { get; set; }

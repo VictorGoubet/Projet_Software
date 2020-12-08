@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Solution.Problem1
 {
-    interface Iterator<T>
+    public interface Iterator<T>
     {
         Node<T> Current { get; set; }
         bool MoveNext();

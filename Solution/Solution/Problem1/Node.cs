@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Solution.Problem1
 {
-    class Node<T>
+    public class Node<T>
     {
 
         public T data { get; set; }

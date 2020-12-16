@@ -84,7 +84,7 @@ namespace Solution
             Dictionary<string, string> inputData = new Dictionary<string, string> { 
                 ["firstDocument"] = "hello hello je suis pierrick et je suis la pour vous faire rigoler",
                 ["secondDocument"] = "je suis encore là!"};
-
+            /*
             IEnumerable<int> Reduce2(string key, IEnumerable<int> values)
             {
                 int sum = 0;
@@ -114,10 +114,11 @@ namespace Solution
                 Console.WriteLine(pair.Key+": "+pair.Value);
             }
 
+            */
 
 
-
-
+            //A faire : definir l'input matrice / voir si ça marche / check les signature dela vrai fonction mapreduce et modif si besoin
+            //check si le code est bien clean / ajout multithread / commenter / rapport
 
 
             KeyValuePair<string, int> Reduce(string key, IEnumerable<int> values)
@@ -139,6 +140,37 @@ namespace Solution
                 }
                 return result;
             }
+
+
+            
+
+            IList<KeyValuePair<int, int>> Map_mat(string key, int[,] value)
+            {
+
+                IList<KeyValuePair<int, int>> res = new List<KeyValuePair<int, int>>();
+                for(int j=0; j<value.GetLength(1); j++)
+                {
+                    int sum = 0;
+                    for(int i=0; i<value.GetLength(0); i++)
+                    {
+                        sum += value[i, j];
+                    }
+                    res.Add(new KeyValuePair<int, int>(j, sum));
+                }
+                return res;
+            }
+
+            KeyValuePair<int, int> Reduce_mat(int key, IEnumerable<int> values)
+            {
+                int sum = 0;
+                foreach (int value in values)
+                {
+                    sum += value;
+                }
+                return new KeyValuePair<int, int>(key, sum);
+            }
+
+
 
             MapReduce<string, string, string, int, string, int> mapreduce = new MapReduce<string, string, string, int, string, int>(Map, Reduce);
             IEnumerable<KeyValuePair<string, int>> res = mapreduce.get_result(inputData);

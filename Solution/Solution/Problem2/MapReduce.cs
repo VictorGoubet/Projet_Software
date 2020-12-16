@@ -11,8 +11,6 @@ namespace Solution.Problem2
         public delegate IEnumerable<KeyValuePair<K2, V2>> map_function(K1 key, V1 val);
         public delegate KeyValuePair<K3, V3> reduce_function(K2 key, IEnumerable<V2> val);
 
-
-
         private map_function map;
         private reduce_function reduce;
 

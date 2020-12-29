@@ -3,7 +3,7 @@ using Solution.Problem1;
 namespace TestSolution
 {
     [TestClass]
-    public class UnitTest1
+    public class Test_Problem1
     {
         [TestMethod]
         public void TestEnqueue()

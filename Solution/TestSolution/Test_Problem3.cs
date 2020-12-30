@@ -24,7 +24,11 @@ namespace TestSolution
         public void TestGoToJailwDouble()
         {
             Monopoly game = Monopoly.GetInstance();
-            game[0].Play(4, 4);
+            game.Restart(); //In case an instance already exists
+            game.AddPlayer("Jean");
+            game.AddPlayer("Paul");
+            game.AddPlayer("Jacques");
+            game[0].Play(4, 4); //Simulates making two 4s three times in a row
             Assert.AreEqual(game[0].InPrison, true);
 
         }
@@ -50,7 +54,12 @@ namespace TestSolution
         public void OutOfJail1wDouble()
         {
             Monopoly game = Monopoly.GetInstance();
+            game.Restart(); //In case an instance already exists
+            game.AddPlayer("Jean");
+            game.AddPlayer("Paul");
+            game.AddPlayer("Jacques");
 
+            game[0].Play(4, 4);
             game[0].Play(4, 4);
 
             Assert.AreEqual(game[0].InPrison, false);
@@ -62,6 +71,11 @@ namespace TestSolution
         public void OutOfJail1w3Rounds()
         {
             Monopoly game = Monopoly.GetInstance();
+
+            game.Restart(); //In case an instance already exists
+            game.AddPlayer("Jean");
+            game.AddPlayer("Paul");
+            game.AddPlayer("Jacques");
 
             game[0].Play(4, 4); //Go to Jail (it simulate 3 doubles in a row)
 
@@ -88,6 +102,13 @@ namespace TestSolution
         public void TestCircularity()
         {
             Monopoly game = Monopoly.GetInstance();
+            game.Restart(); //In case an instance already exists
+            game.AddPlayer("Jean");
+            game.AddPlayer("Paul");
+            game.AddPlayer("Jacques");
+
+            game[0].GoToCase(39);
+
             Assert.AreEqual(game[0].CurrentPosition.next.value, 0);
 
         }

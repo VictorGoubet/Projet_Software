@@ -184,12 +184,12 @@ namespace Solution
 
             #region Try deleting a player
             game.DeletePlayer("UselessPlayer");
-            Console.WriteLine("Delete UselessPlayer:");
+            Console.WriteLine("UselessPlayer Deleted:");
             Console.WriteLine(game);
             #endregion
 
             #region Simulating some round
-            Console.WriteLine("\nHow many round do you want to simulate ? ");
+            Console.WriteLine("\nHow many rounds do you want to simulate ? ");
             string n;
             int value;
             do
@@ -218,7 +218,7 @@ namespace Solution
             Console.WriteLine(game2);
             // !! This is exactly the same game, the iterator pattern is working properly.
 
-            //Let's see the historique of moves of Jacques:
+            //Let's see the historic of moves of Jacques:
             Console.WriteLine("\nLet's see the historic of Jacques");
             game.ShowHistoric("Jacques");
 

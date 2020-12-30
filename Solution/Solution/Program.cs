@@ -165,6 +165,11 @@ namespace Solution
 
         }
 
+        
+        public static void Problem3()
+        {
+
+        }
 
         static void Main(string[] args)
         {

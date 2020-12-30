@@ -14,11 +14,11 @@ namespace Solution.Problem2
         public delegate T3 generic_function(T1 key, T2 val);
 
         private generic_function function;
-        public Thread my_thread;
+        private Thread my_thread { get; set; }
         private T1 key;
         private T2 val;
 
-        T3 res { get; set; }
+        private T3 res { get; set; }
 
         public Worker(generic_function function, T1 key, T2 val)
         {

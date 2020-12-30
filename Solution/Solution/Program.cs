@@ -1,6 +1,7 @@
 ﻿using System;
 using Solution.Problem1;
 using Solution.Problem2;
+using Solution.Problem3;
 using System.Collections.Generic;
 
 
@@ -168,13 +169,74 @@ namespace Solution
         
         public static void Problem3()
         {
+            Monopoly game = Monopoly.GetInstance();
+
+            //Adding players
+            game.AddPlayer("Jean");
+            game.AddPlayer("Paul");
+            game.AddPlayer("Jacques");
+            game.AddPlayer("Christine");
+
+            
+
+            /*Try deleting a player
+
+            game.DeletePlayer("Jean");
+
+            Console.WriteLine(game);*/
+
+            //Simulating some round
+
+            Console.WriteLine("\nHow many round do you want to simulate ? ");
+            string n;
+            int value;
+            do
+            {
+                n = Console.ReadLine();
+            } while (!int.TryParse(n, out value));
+
+
+            for (int i = 0; i < value; i++)
+            {
+                game.PlayRound();
+            }
+
+
+            //Let's try adding a player now 
+            game.AddPlayer("Cassandre");
+            //! You can't add players when the game has already started
+
+            //Check if the iterator pattern works properly
+
+            Console.WriteLine(game);
+
+
+            //Check if the singleton pattern works properly
+
+            Console.WriteLine("\nLet's check that the singelton pattern works properly");
+            Monopoly game2 = Monopoly.GetInstance();
+
+            Console.WriteLine(game2);
+
+            // !! This is exactly the same game, the iterator pattern is working properly.
+
+            //Let's see the historique of moves of Jacques:
+            Console.WriteLine("\nLets see the historic of Jacques");
+
+            game.ShowHistoric("Jacques");
+
+            //Let's see if we can delete the last move of Jean
+            game.Restore("Jacques");
+
+            game.ShowHistoric("Jacques");
 
         }
 
         static void Main(string[] args)
         {
             //Problem1();
-            Problem2();
+            //Problem2();
+            Problem3();
         }
     }
 }

@@ -20,7 +20,7 @@ namespace Solution.Problem3
         }
         #endregion
 
-        #region special get/set
+        #region Special get/set
         public Player GetPlayer(string pname)
         {
             Player pointer = First;
@@ -221,7 +221,7 @@ namespace Solution.Problem3
         }
         #endregion
 
-        #region memento functions Save/Restore/ShowHistoric
+        #region Memento functions Save/Restore/ShowHistoric
         public Memento Save()
         {
             //To save all the historic of the position player

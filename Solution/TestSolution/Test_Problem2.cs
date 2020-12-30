@@ -7,7 +7,7 @@ namespace TestSolution
 
 {
     [TestClass]
-    public class Test_Probleme2
+    public class Test_Problem2
     {
 
         [TestMethod]

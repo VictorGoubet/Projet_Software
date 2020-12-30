@@ -169,24 +169,26 @@ namespace Solution
         
         public static void Problem3()
         {
+            Console.WriteLine("Creation of the Game:");
             Monopoly game = Monopoly.GetInstance();
 
+            #region Add players
             //Adding players
             game.AddPlayer("Jean");
             game.AddPlayer("Paul");
             game.AddPlayer("Jacques");
             game.AddPlayer("Christine");
+            game.AddPlayer("UselessPlayer");
+            Console.WriteLine(game);
+            #endregion
 
-            
+            #region Try deleting a player
+            game.DeletePlayer("UselessPlayer");
+            Console.WriteLine("Delete UselessPlayer:");
+            Console.WriteLine(game);
+            #endregion
 
-            /*Try deleting a player
-
-            game.DeletePlayer("Jean");
-
-            Console.WriteLine(game);*/
-
-            //Simulating some round
-
+            #region Simulating some round
             Console.WriteLine("\nHow many round do you want to simulate ? ");
             string n;
             int value;
@@ -200,36 +202,31 @@ namespace Solution
             {
                 game.PlayRound();
             }
+            #endregion
 
-
-            //Let's try adding a player now 
+            #region Others different check
+            //Try adding a player during the game 
             game.AddPlayer("Cassandre");
             //! You can't add players when the game has already started
 
             //Check if the iterator pattern works properly
-
             Console.WriteLine(game);
 
-
             //Check if the singleton pattern works properly
-
-            Console.WriteLine("\nLet's check that the singelton pattern works properly");
+            Console.WriteLine("\nLet's check that the singleton pattern works properly");
             Monopoly game2 = Monopoly.GetInstance();
-
             Console.WriteLine(game2);
-
             // !! This is exactly the same game, the iterator pattern is working properly.
 
             //Let's see the historique of moves of Jacques:
-            Console.WriteLine("\nLets see the historic of Jacques");
-
+            Console.WriteLine("\nLet's see the historic of Jacques");
             game.ShowHistoric("Jacques");
 
-            //Let's see if we can delete the last move of Jean
+            //Let's see if we can delete the last move of Jacques
+            Console.WriteLine("\nLet's try to delete the last move of Jacques");
             game.Restore("Jacques");
-
             game.ShowHistoric("Jacques");
-
+            #endregion
         }
 
         static void Main(string[] args)

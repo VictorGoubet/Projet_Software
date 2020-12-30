@@ -231,8 +231,8 @@ namespace Solution
 
         static void Main(string[] args)
         {
-            //Problem1();
-            //Problem2();
+            Problem1();
+            Problem2();
             Problem3();
         }
     }

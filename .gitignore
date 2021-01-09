@@ -341,3 +341,6 @@ healthchecksdb
 
 #mac
 .DS_STORE
+
+#zip folder:
+*.zip
